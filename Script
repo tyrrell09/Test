@@ -1,0 +1,33 @@
+let order = [];
+let total = 0;
+
+function addItem(name, price) {
+  order.push({ name, price });
+  updateOrder();
+}
+
+function updateOrder() {
+  const list = document.getElementById("order-list");
+  list.innerHTML = "";
+  total = 0;
+
+  order.forEach((item, index) => {
+    total += item.price;
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    li.onclick = () => removeItem(index);
+    list.appendChild(li);
+  });
+
+  document.getElementById("total").textContent = total.toFixed(2);
+}
+
+function removeItem(index) {
+  order.splice(index, 1);
+  updateOrder();
+}
+
+function clearOrder() {
+  order = [];
+  updateOrder();
+}
