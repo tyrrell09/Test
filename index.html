@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cafe App</title>
+  <meta charset="UTF-8">
+  <title>Cafe Order App</title>
 </head>
 <body>
-  <h1>Order Menu</h1>
+  <h1>Cafe Order</h1>
+
   <button onclick="addItem('Coffee', 3)">☕ Coffee ($3.00)</button>
   <button onclick="addItem('Tea', 2.5)">🍵 Tea ($2.50)</button>
+  <button onclick="addItem('Sandwich', 5)">🥪 Sandwich ($5.00)</button>
 
   <h2>Order List</h2>
   <ul id="order-list"></ul>
+
   <p>Total: $<span id="total">0.00</span></p>
 
   <script src="script.js"></script>
