@@ -1,22 +1,37 @@
 let order = [];
-let total = 0;
 
 function addItem(name, price) {
   order.push({ name, price });
   updateOrder();
 }
 
+function removeItem(index) {
+  order.splice(index, 1); // remove 1 item at this index
+  updateOrder();
+}
+
+function clearOrder() {
+  order = [];
+  updateOrder();
+}
+
 function updateOrder() {
   const list = document.getElementById("order-list");
+  const totalDisplay = document.getElementById("total");
+
   list.innerHTML = "";
-  total = 0;
+  let total = 0;
 
   order.forEach((item, index) => {
     total += item.price;
+
     const li = document.createElement("li");
     li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    li.style.cursor = "pointer";
+    li.title = "Click to remove";
+    li.onclick = () => removeItem(index);
+
     list.appendChild(li);
   });
 
-  document.getElementById("total").textContent = total.toFixed(2);
-}
+  totalDisplay.textContent = total.toFixed(2);
