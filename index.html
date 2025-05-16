@@ -14,8 +14,11 @@
   <h2>Order List</h2>
   <ul id="order-list"></ul>
 
-  <p>Total: $<span id="total">0.00</span></p>
+  <button onclick="clearOrder()" style="margin-top: 10px; background-color: #f44336; color: white;">
+    🗑️ Clear Order
+  </button>
+
+  <p id="total-container"><strong>Total:</strong> $<span id="total">0.00</span></p>
 
   <script src="script.js"></script>
 </body>
-</html>
