@@ -15,19 +15,8 @@ function updateOrder() {
     total += item.price;
     const li = document.createElement("li");
     li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-    li.onclick = () => removeItem(index);
     list.appendChild(li);
   });
 
   document.getElementById("total").textContent = total.toFixed(2);
-}
-
-function removeItem(index) {
-  order.splice(index, 1);
-  updateOrder();
-}
-
-function clearOrder() {
-  order = [];
-  updateOrder();
 }
